@@ -1,0 +1,20 @@
+<view class='page'>
+  <swiper class='lunbo' indicator-dots ="ture" autoplay='true'interval = "3000" circular='true'  indicator-active-color="#f66" indicator-color="#FFF">
+    <swiper-item wx:for = "{{slider}}" wx:key = "{{index}}"> <image style="width:100%" src='{{item}}'></image> </swiper-item >
+  </swiper>
+  <view class='mountTop'>巅峰榜</view>
+  <view>
+     <view wx:for="{{toplist}}" wx:key="{{index}}" class='toplist'>
+        <view class='hot'><text >热度：{{item.listenCount}}</text></view>
+        <view class='flexbox'>
+          <image bindtap='gosongList' data-id='{{item.id}}' src='{{item.picUrl}}' class='topimg'></image>
+          <view wx:for="{{item.songList}}" wx:key="{{index}}" style='float:rigth'>
+              <view><text>歌手：</text><text>{{item.singername}}</text></view>
+              <view><text>歌曲：</text><text>{{item.songname}}</text></view>
+
+          </view>
+
+        </view>
+     </view>
+  </view>
+</view>

@@ -1,0 +1,19 @@
+<view class='page'>
+   <view class='current'  wx-if = "{{flag}}" >正在播放：{{songname}}  <text class='stop' wx:if="{{temp}}" bindtap="stop" >暂停</text><text class='stop' wx:else bindtap="start" >开始</text></view>
+
+   <view class='top'>
+      <view class='title'>{{songlist.topinfo.ListName}}</view>
+      <image class='hotpic' src='{{songlist.topinfo.pic_album}}'></image>
+      <view class='topTime'>最后更新时间：<text class='update'>{{songlist.update_time}}</text></view>
+   </view>
+   <view wx:for = "{{songlist.songlist}}" class='list'wx:key="{{index}}" >
+     <view >
+        <view class='song'>{{item.songname}}</view>
+        <view class='songer'>{{item.singer}}</view>
+
+     </view>
+     <view  class='square' bindtap='listenMusic' data-id='{{item.songmid}}'data-song = "{{item.songname}}" >播放</view>
+
+   </view>
+
+</view>
